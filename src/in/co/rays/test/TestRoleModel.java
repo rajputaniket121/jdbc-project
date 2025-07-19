@@ -4,8 +4,6 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ResourceBundle;
-
 import in.co.rays.bean.RoleBean;
 import in.co.rays.model.RoleModel;
 
@@ -18,7 +16,6 @@ public class TestRoleModel {
 		//testFindByRollName();
 		//testSearchRole();
 		//testDisplayTableInfo();
-		//ResourceBundle bundle = new ResourceBundle("in.co.rays.bundle.system");
 	}
 	
 	public static void testAddRole() throws Exception {

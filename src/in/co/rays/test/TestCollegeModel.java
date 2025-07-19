@@ -11,13 +11,12 @@ import in.co.rays.model.CollegeModel;
 public class TestCollegeModel {
 	public static void main(String[] args) throws Exception {
 		//testAddCollege();
-		testUpdateCollege();
+		//testUpdateCollege();
 		//testdeleteCollege();
 		//testFindByPk();
 		//testFindByCollegeName();
 		//testSearchCollege();
 		//testDisplayTableInfo();
-		//ResourceBundle bundle = new ResourceBundle("in.co.rays.bundle.system");
 	}
 	
 	public static void testAddCollege() throws Exception {

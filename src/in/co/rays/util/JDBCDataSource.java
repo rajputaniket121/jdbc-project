@@ -4,29 +4,29 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public final class JDBCDataSource {
 	private static JDBCDataSource jds = null;
 	private static ComboPooledDataSource cpds = null;
+	private static ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.bundle.system");
 	
 	
 	private JDBCDataSource() {
 		try {
 			cpds = new ComboPooledDataSource();
-			cpds.setDriverClass("com.mysql.cj.jdbc.Driver");
-			cpds.setJdbcUrl("jdbc:mysql://localhost:3306/my_project");
-			cpds.setUser("root");
-			cpds.setPassword("root");
-			cpds.setInitialPoolSize(5);
-			cpds.setAcquireIncrement(5);
-			cpds.setMaxPoolSize(30);
-			
+			cpds.setDriverClass(rb.getString("driver"));
+			cpds.setJdbcUrl(rb.getString("jdbcurl"));
+			cpds.setUser(rb.getString("user"));
+			cpds.setPassword(rb.getString("password"));
+			cpds.setInitialPoolSize(Integer.parseInt(rb.getString("initialpoolsize")));
+			cpds.setAcquireIncrement(Integer.parseInt(rb.getString("acquireincrement")));
+			cpds.setMaxPoolSize(Integer.parseInt(rb.getString("maxpoolsize")));	
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
+		}	
 	}
 	
 	public static JDBCDataSource getInstance() {
@@ -47,18 +47,11 @@ public final class JDBCDataSource {
 	}
 	
 	public static void closeConnection(Connection conn) throws SQLException {
-		if(conn!=null) {
-			conn.close();
-		}
+		closeConnection(conn, null, null);
 	}
 	
 	public static void closeConnection(Connection conn,Statement stmt) throws SQLException {
-		if(conn!=null) {
-			conn.close();
-		}
-		if(stmt!=null) {
-			stmt.close();
-		}
+		closeConnection(conn, stmt, null);
 	}
 	
 	public static void closeConnection(Connection conn,Statement stmt,ResultSet rs) throws SQLException {
