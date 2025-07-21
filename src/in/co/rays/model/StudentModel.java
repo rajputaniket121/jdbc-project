@@ -7,6 +7,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import in.co.rays.bean.CollegeBean;
 import in.co.rays.bean.StudentBean;
 import in.co.rays.util.JDBCDataSource;
 
@@ -28,15 +30,24 @@ public class StudentModel {
 			pstmt.setString(5, bean.getGender());
 			pstmt.setString(6, bean.getMobileNo());
 			pstmt.setString(7, bean.getEmail());
-			pstmt.setLong(8, bean.getCollegeId());
-			pstmt.setString(9, bean.getCollegeName());
+			
+			CollegeModel cModel = new CollegeModel();
+			CollegeBean clgBean = cModel.findByPk(bean.getCollegeId());
+			if(clgBean!=null) {
+				pstmt.setLong(8, bean.getCollegeId());
+				pstmt.setString(9, clgBean.getName());
+			}
+			else {
+				throw new Exception("College with this id does not exist");
+			}
+			
 			pstmt.setString(10, bean.getCreatedBy());
 			pstmt.setString(11, bean.getModifiedBy());
 			pstmt.setTimestamp(12, bean.getCreatedDateTime());
 			pstmt.setTimestamp(13, bean.getModifiedDateTime());
 			int i = pstmt.executeUpdate();
 			pstmt.close();
-			System.out.println("New User data Inserted " + i);
+			System.out.println("New Student data Inserted " + i);
 			conn.commit();
 		} catch (Exception e) {
 			conn.rollback();
@@ -66,7 +77,14 @@ public class StudentModel {
 			pstmt.setString(5, bean.getMobileNo());
 			pstmt.setString(6, bean.getEmail());
 			pstmt.setLong(7, bean.getCollegeId());
-			pstmt.setString(8, bean.getCollegeName());
+			CollegeModel cModel = new CollegeModel();
+			CollegeBean clgBean = cModel.findByPk(bean.getCollegeId());
+			if(clgBean!=null) {
+				pstmt.setString(8, clgBean.getName());
+			}
+			else {
+				throw new Exception("College with this id does not exist");
+			}
 			pstmt.setString(9, bean.getCreatedBy());
 			pstmt.setString(10, bean.getModifiedBy());
 			pstmt.setTimestamp(11, bean.getCreatedDateTime());

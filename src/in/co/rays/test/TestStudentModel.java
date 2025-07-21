@@ -11,7 +11,7 @@ import in.co.rays.model.StudentModel;
 public class TestStudentModel {
 	public static void main(String[] args) throws Exception {
 		//testAddStudent();
-		// testUpdateStudent();
+		 //testUpdateStudent();
 		 //testDeleteStudent();
 		 //testFindByPk();
 		//testFindByEmail();
@@ -23,14 +23,13 @@ public class TestStudentModel {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		StudentModel model = new StudentModel();
 		StudentBean bean = new StudentBean();
-		bean.setFirstName("rohan");
-		bean.setLastName("upadyay");
+		bean.setFirstName("Uday");
+		bean.setLastName("Sharma");
 		bean.setDob(sdf.parse("03-09-1999"));
 		bean.setGender("Male");
 		bean.setMobileNo("98266789873");
-		bean.setEmail("rohan@gmail.com");
+		bean.setEmail("uday@gmail.com");
 		bean.setCollegeId(2l);
-		bean.setCollegeName("123");
 		bean.setCreatedBy("Aniket");
 		bean.setModifiedBy("Aniket");
 		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));
@@ -42,15 +41,14 @@ public class TestStudentModel {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		StudentModel model = new StudentModel();
 		StudentBean bean = new StudentBean();
-		bean.setId(1l);
+		bean.setId(2l);
 		bean.setFirstName("malay");
-		bean.setLastName("kerketta");
+		bean.setLastName("upadyay");
 		bean.setDob(sdf.parse("03-09-1999"));
 		bean.setGender("Male");
 		bean.setMobileNo("98266789873");
 		bean.setEmail("malay@gmail.com");
-		bean.setCollegeId(2l);
-		bean.setCollegeName("123");
+		bean.setCollegeId(1l);
 		bean.setCreatedBy("Aniket");
 		bean.setModifiedBy("Aniket");
 		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));
@@ -111,7 +109,6 @@ public class TestStudentModel {
 		testBean.setMobileNo("98266789873");
 		testBean.setEmail("rohan@gmail.com");
 		testBean.setCollegeId(2l);
-		testBean.setCollegeName("123");
 		testBean.setCreatedBy("Aniket");
 		testBean.setModifiedBy("Aniket");
 		List<StudentBean> list = model.search(null, 1, 5);

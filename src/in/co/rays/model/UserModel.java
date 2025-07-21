@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.co.rays.bean.RoleBean;
 import in.co.rays.bean.UserBean;
 import in.co.rays.util.JDBCDataSource;
 
@@ -30,7 +31,16 @@ public class UserModel {
 			pstmt.setString(5, bean.getPassword());
 			pstmt.setDate(6, new java.sql.Date(bean.getDob().getTime()));
 			pstmt.setString(7, bean.getMobileNo());
-			pstmt.setLong(8, bean.getRoleId());
+			
+			
+			RoleModel roleModel = new RoleModel();
+			RoleBean roleBean = roleModel.findByPk(bean.getRoleId());
+			if(roleBean!=null) {
+				pstmt.setLong(8, roleBean.getId());
+			}else {
+				throw new Exception("Role does not exist");
+			}
+
 			pstmt.setString(9, bean.getGender());
 			pstmt.setString(10, bean.getCreatedBy());
 			pstmt.setString(11, bean.getModifiedBy());
