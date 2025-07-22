@@ -15,6 +15,10 @@ public class RoleBean extends BaseBean {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	@Override
+	public String toString() {
+		return "RoleBean [name=" + name + ", description=" + description + "]";
+	}
 	
 	
 }

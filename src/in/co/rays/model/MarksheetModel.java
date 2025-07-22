@@ -13,6 +13,11 @@ import in.co.rays.util.JDBCDataSource;
 
 public class MarksheetModel {
 	public void add(MarksheetBean bean) throws Exception{
+		
+		StudentModel stuModel = new StudentModel();
+		StudentBean stuBean = stuModel.findByPk(bean.getStudentId());
+		bean.setName(stuBean.getFirstName()+" "+stuBean.getLastName());
+		
 		Connection conn = null;
 		MarksheetBean exist = findByName(bean.getName());
 		if(exist!=null) {
@@ -24,16 +29,8 @@ public class MarksheetModel {
 			PreparedStatement pstmt = conn.prepareStatement("insert into st_marksheet values(?,?,?,?,?,?,?,?,?,?,?)");
 			pstmt.setLong(1, getNextPk());
 			pstmt.setString(2,bean.getRollNo());
-			
-			StudentModel stuModel = new StudentModel();
-			StudentBean stuBean = stuModel.findByPk(bean.getStudentId());
-			if(stuBean!=null) {
-				pstmt.setLong(3, stuBean.getId());
-				pstmt.setString(4, stuBean.getFirstName()+" "+stuBean.getLastName());
-			}else {
-				throw new Exception("Student Does not exist");
-			}
-			
+			pstmt.setLong(3, bean.getStudentId());
+			pstmt.setString(4, bean.getName());
 			pstmt.setInt(5, bean.getPhysics());
 			pstmt.setInt(6, bean.getChemistry());
 			pstmt.setInt(7, bean.getMaths());
@@ -54,6 +51,10 @@ public class MarksheetModel {
 	}
 	
 	public void update(MarksheetBean bean) throws Exception{
+		StudentModel stuModel = new StudentModel();
+		StudentBean stuBean = stuModel.findByPk(bean.getStudentId());
+		bean.setName(stuBean.getFirstName()+" "+stuBean.getLastName());
+		
 		MarksheetBean exist = findByName(bean.getName());
 		if(exist!=null && exist.getId() == bean.getId()) {
 			throw new Exception("Marksheet already Presant");

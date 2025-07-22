@@ -230,13 +230,21 @@ public class RoleModel {
 
 	public Long getNextPk() throws SQLException {
 		Long pk = 0l;
-		Connection conn = JDBCDataSource.getConnection();
-		PreparedStatement pstmt = conn.prepareStatement("select max(id) from st_role");
-		ResultSet rs = pstmt.executeQuery();
-		while (rs.next()) {
-			pk = rs.getLong(1);
+		Connection conn = null;
+
+		try {
+			conn = JDBCDataSource.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement("select max(id) from st_role");
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				pk = rs.getLong(1);
+			}
+			rs.close();
+		} catch (Exception e) {
+			throw new RuntimeException("Exception : Exception in getting PK for role");
+		} finally {
+			JDBCDataSource.closeConnection(conn);
 		}
-		JDBCDataSource.closeConnection(conn, pstmt);
 		return pk + 1;
 	}
 

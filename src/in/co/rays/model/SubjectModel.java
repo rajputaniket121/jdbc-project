@@ -14,6 +14,10 @@ import in.co.rays.util.JDBCDataSource;
 
 public class SubjectModel {
 	public void add(SubjectBean bean) throws Exception {
+		CourseModel courseModel = new CourseModel();
+		CourseBean courseBean = courseModel.findByPk(bean.getCourseId());
+		bean.setCourseName(courseBean.getName());
+		
 		Connection conn = null;
 		SubjectBean exist = findBySubjectName(bean.getName());
 		if(exist!=null) {
@@ -25,15 +29,8 @@ public class SubjectModel {
 			PreparedStatement pstmt = conn.prepareStatement("insert into st_subject values(?,?,?,?,?,?,?,?,?)");
 			pstmt.setLong(1, getNextPk());
 			pstmt.setString(2, bean.getName());
-			
-			CourseModel courseModel = new CourseModel();
-			CourseBean courseBean = courseModel.findByPk(bean.getCourseId());
-			if(courseBean!=null) {
-				pstmt.setLong(3, courseBean.getId());
-				pstmt.setString(4, courseBean.getName());
-			}else {
-				throw new Exception("Course does not exist");
-			}
+			pstmt.setLong(3, bean.getCourseId());
+			pstmt.setString(4, bean.getCourseName());
 			pstmt.setString(5, bean.getDescription());
 			pstmt.setString(6, bean.getCreatedBy());
 			pstmt.setString(7, bean.getModifiedBy());
@@ -52,6 +49,10 @@ public class SubjectModel {
 	}
 
 	public void update(SubjectBean bean) throws Exception {
+		CourseModel courseModel = new CourseModel();
+		CourseBean courseBean = courseModel.findByPk(bean.getCourseId());
+		bean.setCourseName(courseBean.getName());
+		
 		SubjectBean exist = findBySubjectName(bean.getName());
 		if(exist!=null && exist.getId() == bean.getId()) {
 			throw new Exception("subject already Presant");

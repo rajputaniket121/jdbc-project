@@ -2,12 +2,12 @@ package in.co.rays.bean;
 
 import java.util.Date;
 
-public class TimetableBean {
+public class TimetableBean extends BaseBean{
 	private String semester;
 	private String description;
 	private Date examdate;
 	private String examTime;
-	private Long courseid;
+	private Long courseId;
 	private String courseName;
 	private Long subjectId;
 	private String subjectName;
@@ -35,11 +35,11 @@ public class TimetableBean {
 	public void setExamTime(String examTime) {
 		this.examTime = examTime;
 	}
-	public Long getCourseid() {
-		return courseid;
+	public Long getCourseId() {
+		return courseId;
 	}
-	public void setCourseid(Long courseid) {
-		this.courseid = courseid;
+	public void setCourseId(Long courseId) {
+		this.courseId = courseId;
 	}
 	public String getCourseName() {
 		return courseName;
@@ -59,10 +59,11 @@ public class TimetableBean {
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
+	
 	@Override
 	public String toString() {
 		return "TimetableBean [semester=" + semester + ", description=" + description + ", examdate=" + examdate
-				+ ", examTime=" + examTime + ", courseid=" + courseid + ", courseName=" + courseName + ", subjectId="
+				+ ", examTime=" + examTime + ", courseid=" + courseId + ", courseName=" + courseName + ", subjectId="
 				+ subjectId + ", subjectName=" + subjectName + "]";
 	}
 

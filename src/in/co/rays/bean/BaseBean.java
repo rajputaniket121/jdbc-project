@@ -50,6 +50,12 @@ public class BaseBean {
 	public void setModifiedDateTime(Timestamp modifiedDateTime) {
 		this.modifiedDateTime = modifiedDateTime;
 	}
+
+	@Override
+	public String toString() {
+		return "BaseBean [id=" + id + ", createdBy=" + createdBy + ", modifiedBy=" + modifiedBy + ", createdDateTime="
+				+ createdDateTime + ", modifiedDateTime=" + modifiedDateTime + "]";
+	}
 	
 	
 	
