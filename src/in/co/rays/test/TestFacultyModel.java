@@ -12,28 +12,28 @@ import in.co.rays.model.FacultyModel;
 public class TestFacultyModel {
 
 	public static void main(String[] args) throws Exception {
-		testAddFaculty();
-		 testUpdateFaculty();
-		 testDeleteFaculty();
-		 testFindByPk();
-		testFindByEmail();
-		 testSearchFaculty();
-		 testDisplayFacultyTableInfo();
+		//testAddFaculty();
+		 //testUpdateFaculty();
+		 //testDeleteFaculty();
+		 //testFindByPk();
+		//testFindByEmail();
+		 //testSearchFaculty();
+		// testDisplayFacultyTableInfo();
 	}
 
 	public static void testAddFaculty() throws Exception {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		FacultyModel model = new FacultyModel();
 		FacultyBean bean = new FacultyBean();
-		bean.setFirstName("Uday");
+		bean.setFirstName("Anshul");
 		bean.setLastName("Sharma");
 		bean.setDob(sdf.parse("03-09-1999"));
 		bean.setGender("Male");
 		bean.setMobileNo("98266789873");
-		bean.setEmail("uday@gmail.com");
-		bean.setCollegeId(2l);
+		bean.setEmail("anshul@gmail.com");
+		bean.setCollegeId(1l);
 		bean.setCourseId(1l);
-		bean.setSubjectId(2l);
+		bean.setSubjectId(1l);
 		bean.setCreatedBy("Aniket");
 		bean.setModifiedBy("Aniket");
 		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));

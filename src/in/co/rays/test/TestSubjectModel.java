@@ -10,7 +10,7 @@ import in.co.rays.model.SubjectModel;
 
 public class TestSubjectModel {
 	public static void main(String[] args) throws Exception {
-		 //testAddSubject();
+		// testAddSubject();
 		 //testUpdateSubject();
 		// testdeleteSubject();
 		// testFindByPk();
@@ -22,10 +22,9 @@ public class TestSubjectModel {
 	public static void testAddSubject() throws Exception {
 		SubjectModel model = new SubjectModel();
 		SubjectBean bean = new SubjectBean();
-		bean.setName("maths");
+		bean.setName("Core Java");
 		bean.setCourseId(1l);
-		bean.setCourseName("Java");
-		bean.setDescription("Addition ");
+		bean.setDescription(" Basics of java  ");
 		bean.setCreatedBy("Aniket");
 		bean.setModifiedBy("Aniket");
 		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));

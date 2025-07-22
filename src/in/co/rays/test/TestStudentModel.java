@@ -29,7 +29,7 @@ public class TestStudentModel {
 		bean.setGender("Male");
 		bean.setMobileNo("98266789873");
 		bean.setEmail("uday@gmail.com");
-		bean.setCollegeId(2l);
+		bean.setCollegeId(1l);
 		bean.setCreatedBy("Aniket");
 		bean.setModifiedBy("Aniket");
 		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));

@@ -22,7 +22,7 @@ public class TestCollegeModel {
 	public static void testAddCollege() throws Exception {
 		CollegeModel model = new CollegeModel();
 		CollegeBean bean = new CollegeBean();
-		bean.setName("Sage");
+		bean.setName("IPS");
 		bean.setAddress("Indore");
 		bean.setState("Indore");
 		bean.setCity("Indore");

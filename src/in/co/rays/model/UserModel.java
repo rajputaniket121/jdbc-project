@@ -13,7 +13,7 @@ import in.co.rays.util.JDBCDataSource;
 public class UserModel {
 
 	public void add(UserBean bean) throws Exception {
-		UserBean exist = findByPk(bean.getId());
+		UserBean exist = findByLogin(bean.getLogin());
 		if(exist!=null) {
 			throw new Exception("User already Presant");
 		}

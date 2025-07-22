@@ -24,12 +24,12 @@ public class TestUserModel {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		UserModel model = new UserModel();
 		UserBean bean = new UserBean();
-		bean.setFirstName("rohan");
-		bean.setLastName("kerketta");
+		bean.setFirstName("Rohan");
+		bean.setLastName("Rajput");
 		bean.setLogin("rohan@gmail.com");
-		bean.setPassword("123");
-		bean.setDob(sdf.parse("03-09-1999"));
-		bean.setMobileNo("98266789873");
+		bean.setPassword("password");
+		bean.setDob(sdf.parse("26-07-1999"));
+		bean.setMobileNo("7898870487");
 		bean.setRoleId(2l);
 		bean.setGender("Male");
 		bean.setCreatedBy("Aniket");

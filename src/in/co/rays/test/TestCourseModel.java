@@ -10,7 +10,7 @@ import in.co.rays.model.CourseModel;
 
 public class TestCourseModel {
 	public static void main(String[] args) throws Exception {
-		 //testAddCourse();
+		// testAddCourse();
 		// testUpdateCourse();
 		 //testdeleteCourse();
 		// testFindByPk();
@@ -22,9 +22,9 @@ public class TestCourseModel {
 	public static void testAddCourse() throws Exception {
 		CourseModel model = new CourseModel();
 		CourseBean bean = new CourseBean();
-		bean.setName("maths");
-		bean.setDuration("5 hours");
-		bean.setDescription("Addition ");
+		bean.setName("Corprate java");
+		bean.setDuration("6 Months ");
+		bean.setDescription("You will learn evrything about java in the course");
 		bean.setCreatedBy("Aniket");
 		bean.setModifiedBy("Aniket");
 		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));

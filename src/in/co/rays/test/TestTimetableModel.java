@@ -11,7 +11,7 @@ import in.co.rays.model.TimetableModel;
 
 public class TestTimetableModel {
 	public static void main(String[] args) throws Exception {
-		testAddTimetable();
+		//testAddTimetable();
 		 //testUpdateTimetable();
 		 //testDeleteTimetable();
 		 //testFindByPk();
@@ -23,9 +23,9 @@ public class TestTimetableModel {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		TimetableModel model = new TimetableModel();
 		TimetableBean bean = new TimetableBean();
-		bean.setSemester("Uday");
-		bean.setDescription("Sharma");
-		bean.setExamdate(sdf.parse("03-09-1999"));
+		bean.setSemester("1st");
+		bean.setDescription("1st Semester Examination");
+		bean.setExamdate(sdf.parse("03-09-2025"));
 		bean.setExamTime("2 hours");
 		bean.setCourseId(1l);
 		bean.setSubjectId(1l);

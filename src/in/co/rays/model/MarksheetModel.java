@@ -19,7 +19,7 @@ public class MarksheetModel {
 		bean.setName(stuBean.getFirstName()+" "+stuBean.getLastName());
 		
 		Connection conn = null;
-		MarksheetBean exist = findByName(bean.getName());
+		MarksheetBean exist = findByRollNo(bean.getRollNo());
 		if(exist!=null) {
 			throw new Exception("Marksheet Data already Presant");
 		}
@@ -55,7 +55,7 @@ public class MarksheetModel {
 		StudentBean stuBean = stuModel.findByPk(bean.getStudentId());
 		bean.setName(stuBean.getFirstName()+" "+stuBean.getLastName());
 		
-		MarksheetBean exist = findByName(bean.getName());
+		MarksheetBean exist = findByRollNo(bean.getRollNo());
 		if(exist!=null && exist.getId() == bean.getId()) {
 			throw new Exception("Marksheet already Presant");
 		}
@@ -141,12 +141,12 @@ public class MarksheetModel {
 		return bean;
 	}
 	
-	public MarksheetBean findByName(String name) throws SQLException,ClassNotFoundException{
+	public MarksheetBean findByRollNo(String name) throws SQLException,ClassNotFoundException{
 		Connection conn = null;
 		MarksheetBean bean = null;
 		try {
 			conn = JDBCDataSource.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement("select * from st_marksheet where name = ?");
+			PreparedStatement pstmt = conn.prepareStatement("select * from st_marksheet where roll_no = ?");
 			pstmt.setString(1, name);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {

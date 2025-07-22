@@ -21,8 +21,8 @@ public class TestRoleModel {
 	public static void testAddRole() throws Exception {
 		RoleModel model = new RoleModel();
 		RoleBean bean = new RoleBean();
-		bean.setName("temp");
-		bean.setDescription("He is a normal user");
+		bean.setName("User");
+		bean.setDescription("He is Normal User");
 		bean.setCreatedBy("Aniket");
 		bean.setModifiedBy("Aniket");
 		bean.setCreatedDateTime(new Timestamp(new Date().getTime()));

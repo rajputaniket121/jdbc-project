@@ -15,15 +15,15 @@ public class TestMarksheetModel {
 		// updateMarksheet();
 		// deleteMarksheet();
 		// findByPk();
-		 //findByName();
+		//findByRollNo();
 		 //search();
 	}
 
 	public static void addMarksheet() throws Exception {
 		MarksheetModel model = new MarksheetModel();
 		MarksheetBean bean = new MarksheetBean();
-		bean.setStudentId(8l);
-		bean.setRollNo("261");
+		bean.setStudentId(1l);
+		bean.setRollNo("101");
 		bean.setPhysics(78);
 		bean.setChemistry(89);
 		bean.setMaths(76);
@@ -62,9 +62,9 @@ public class TestMarksheetModel {
 		System.out.println(bean);
 	}
 
-	public static void findByName() throws ClassNotFoundException, SQLException {
+	public static void findByRollNo() throws ClassNotFoundException, SQLException {
 		MarksheetModel model = new MarksheetModel();
-		MarksheetBean bean = model.findByName("Aniket Rajput");
+		MarksheetBean bean = model.findByRollNo("101");
 		System.out.println(bean);
 	}
 
